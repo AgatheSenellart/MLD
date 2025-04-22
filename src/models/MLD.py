@@ -191,6 +191,7 @@ class MLD(MG):
             else:
                 encodings = x
 
+            # Agathe: Record mean and std of the latent encodings to reverse preprocessing afterwards.
             if self.global_step == 0 or self.stat == None:
               #  x_st = deconcat(x_0,modalities_list= self.modalities_list)
                 self.stat_up = {}
@@ -220,6 +221,7 @@ class MLD(MG):
             if self.preprocess_type == "modality":
                 encodings = self.preprocess(encodings)
 
+            # Concatenate the encodings
             x_0 = concat_vect(encodings).clone().detach()
 
             if self.preprocess_type == "latent":

@@ -20,13 +20,13 @@ import pytorch_lightning as pl
 
 digit_text_english = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 
-DATA_FOLDER = "data/data_mnistsvhntext/"
+DATA_FOLDER = "/home/asenella/dev/MLD/data/data_mnistsvhntext/"
 #DATA_FOLDER ="/home/bounoua/work/mld/data/data_mnistsvhntext/"
-data_multiplications = 20
+data_multiplications = 5
 
 
-alphabet_file = DATA_FOLDER+"alphabet.json"
-
+# alphabet_file = DATA_FOLDER+"alphabet.json"
+ 
 
 
 class VisionDataset(data.Dataset):
@@ -121,9 +121,9 @@ class SVHNMNIST(VisionDataset):
         self.target_transform = target_transform
         self.with_text =with_text
         self.train = train  # training set or test set
-        with open(alphabet_file) as al_file:
-            alphabet = str(''.join(json.load(al_file)))
-        self.alphabet =  alphabet
+        # with open(alphabet_file) as al_file:
+        #     alphabet = str(''.join(json.load(al_file)))
+        # self.alphabet =  alphabet
 
         self.dir_svhn = os.path.join(self.root, self.dataset_svhn)
         
@@ -203,8 +203,8 @@ class SVHNMNIST(VisionDataset):
                 img_mnist = self.transform[0](img_mnist);
                 img_svhn = self.transform[1](img_svhn);
 
-        if target_mnist == target_svhn:
-            text_target = create_text_from_label_mnist(self.len_sequence, target_mnist, self.alphabet)
+        # if target_mnist == target_svhn:
+        #     text_target = create_text_from_label_mnist(self.len_sequence, target_mnist, self.alphabet)
         else:
             print(target_svhn)
             print(target_mnist)
@@ -217,12 +217,11 @@ class SVHNMNIST(VisionDataset):
             target = self.target_transform(target_mnist)
         else:
             target = target_mnist;
-        if self.with_text:
-            batch = {'mnist': img_mnist, 'svhn': img_svhn, 'label': text_target}
-            return batch, target
-        else:
-            batch = {'mnist': img_mnist, 'svhn': img_svhn}
-            return batch, target
+        # if self.with_text:
+        #     batch = {'mnist': img_mnist, 'svhn': img_svhn, 'label': text_target}
+        #     return batch, target
+        batch = {'mnist': img_mnist, 'svhn': img_svhn}
+        return batch, target
 
     def __len__(self):
         return len(self.mnist_idx)

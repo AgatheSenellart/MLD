@@ -24,7 +24,7 @@ class AE(pl.LightningModule):
     def training_step(self, x) :
   
         self.train()
-        if isinstance(x,dict):
+        if isinstance(x,list):
             x = x[0][self.modality.name]
         
         batch_size = x.size(0)
@@ -69,9 +69,10 @@ class AE(pl.LightningModule):
 
 
     def validation_step(self, x, batch_idx):
-        if isinstance(x,dict):
+        if isinstance(x,list):
             x = x[0][self.modality.name]
-   
+
+        # print(x)
         batch_size = x.size(0)
         recon ,z  = self.forward(x)  
         

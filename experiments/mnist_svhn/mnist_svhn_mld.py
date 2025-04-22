@@ -1,4 +1,6 @@
 
+import sys
+sys.path.insert(0,'/home/asenella/dev/MLD')
 
 from src.dataLoaders.MnistSvhnText.modalities import MNIST, SVHN, LABEL
 from src.models.LateFusionAE import LateFusionAE
@@ -43,8 +45,8 @@ r_w_text = 1.0
 lr = 1e-4
 
 PATHS = {
-    "mnist": "trained_models/MNISTSVHN/aemnist/version_2/checkpoints/epoch=3-step=35040.ckpt",
-    "svhn": "trained_models/MNISTSVHN/aesvhn/version_0/checkpoints/epoch=10-step=96360.ckpt"}
+    "mnist": "/home/asenella/dev/MLD/trained_models/MNISTSVHN/aemnist/version_3/checkpoints/epoch=1-step=4380.ckpt",
+    "svhn": "/home/asenella/dev/MLD/trained_models/MNISTSVHN/aesvhn/version_0/checkpoints/epoch=1-step=4380.ckpt"}
 
 
 train, test = get_data_set_svhn_mnist(with_text=False)

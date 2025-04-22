@@ -1,3 +1,8 @@
+
+
+import sys
+sys.path.insert(0,'/home/asenella/dev/MLD')
+
 from src.dataLoaders.MnistSvhnText.modalities import MNIST, SVHN, LABEL
 from src.utils import create_forlder
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter

@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0,'/home/asenella/dev/MLD')
+
 from torch.utils.data import DataLoader
 from src.dataLoaders.MnistSvhnText.MnistSvhnText import  get_data_set_svhn_mnist
 from src.eval_metrics.Classifiers.MnistSvhnClassifiers import SVHN_Classifier_shie,MNIST_Classifier_shie
