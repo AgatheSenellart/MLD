@@ -54,8 +54,8 @@ CHECKPOINT_DIR = os.path.join(CHECKPOINT_DIR, 'MMNIST')
 if __name__ == "__main__":
 
     args = parser.parse_args()
-    latent_dim = 160
-    modalities_list = [MMNIST(latent_dim=latent_dim, lhood_name="laplace", resnet=False,
+    latent_dim = 40
+    modalities_list = [MMNIST(latent_dim=latent_dim, lhood_name="laplace", resnet=True,
                               deterministic=True, name="m{}".format(i)) for i in [0, 1, 2, 3, 4]]
 
     for modality in modalities_list:
