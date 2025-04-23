@@ -1,4 +1,9 @@
 
+import os
+import sys
+
+root = os.getenv('MLD_PATH')
+sys.path.append(root)
 
 from src.unimodal.BaseAE import AE
 from src.dataLoaders.MMNIST.MMNIST import get_mmnist_dataset
@@ -9,10 +14,6 @@ import logging
 from pytorch_lightning.loggers import TensorBoardLogger
 from torch.utils.data import DataLoader
 import pytorch_lightning as pl
-import os
-import sys
-root = "/home/bounoua/work/mld/"
-sys.path.append(root)
 
 
 logging.getLogger("lightning").setLevel(logging.ERROR)
@@ -27,7 +28,7 @@ parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
 
 
 parser.add_argument('--modality', type=str, default="m0",
-                    help=("Options possible are image, sound, trajectory"))
+                    help=("Options possible are m0,m1,m2,m3,m4"))
 
 
 NUM_epoch = 300

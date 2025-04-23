@@ -40,7 +40,7 @@ class MMNIST(Modality):
 
 
         self.classifier = ClfImg()
-        self.classifier.load_state_dict(torch.load(PATHS_CLASSIFIERS+str(self.name)))
+        self.classifier.load_state_dict(torch.load(PATHS_CLASSIFIERS+str(self.name)+'.pt'))
         self.classifier.eval()
         self.modality_type = "img"
         self.gen_quality = "fid"

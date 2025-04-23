@@ -135,8 +135,9 @@ class MMNISTDataset(Dataset):
     def __len__(self):
         return self.num_files
 
-unimodal_datapaths_train=["data/MMNIST/train/m{}".format(i) for i in [0,1,2,3,4] ]
-unimodal_datapaths_test=["data/MMNIST/test/m{}".format(i) for i in [0,1,2,3,4] ]
+data_path=os.path.join(os.getenv('MLD_PATH'), 'data', 'MMNIST')
+unimodal_datapaths_train=[os.path.join(data_path, 'translated_polymnist_2',"train/m{}".format(i)) for i in [0,1,2,3,4] ]
+unimodal_datapaths_test=[os.path.join(data_path, 'translated_polymnist_2',"test/m{}".format(i)) for i in [0,1,2,3,4] ]
 
 def get_mmnist_dataset():
     transform = transforms.Compose([transforms.ToTensor()])
