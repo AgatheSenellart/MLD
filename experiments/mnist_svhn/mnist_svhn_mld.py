@@ -1,6 +1,6 @@
 
 import sys
-sys.path.insert(0,'/home/asenella/dev/MLD')
+sys.path.insert(0,'/lustre/fswork/projects/rech/vct/ute94bq/MLD')
 
 from src.dataLoaders.MnistSvhnText.modalities import MNIST, SVHN, LABEL
 from src.models.LateFusionAE import LateFusionAE
@@ -45,8 +45,8 @@ r_w_text = 1.0
 lr = 1e-4
 
 PATHS = {
-    "mnist": "/home/asenella/dev/MLD/trained_models/MNISTSVHN/aemnist/version_3/checkpoints/epoch=1-step=4380.ckpt",
-    "svhn": "/home/asenella/dev/MLD/trained_models/MNISTSVHN/aesvhn/version_0/checkpoints/epoch=1-step=4380.ckpt"}
+    "mnist": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MNISTSVHN/aemnist/version_0/checkpoints/epoch=149-step=328500.ckpt",
+    "svhn": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MNISTSVHN/aesvhn/version_0/checkpoints/epoch=149-step=328500.ckpt"}
 
 
 train, test = get_data_set_svhn_mnist(with_text=False)

@@ -1,7 +1,7 @@
 
 
 import sys
-sys.path.insert(0,'/home/asenella/dev/MLD')
+sys.path.insert(0,'/lustre/fswork/projects/rech/vct/ute94bq/MLD')
 
 from src.dataLoaders.MnistSvhnText.modalities import MNIST, SVHN, LABEL
 from src.utils import create_forlder

@@ -20,7 +20,8 @@ import pytorch_lightning as pl
 
 digit_text_english = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 
-DATA_FOLDER = "/home/asenella/dev/MLD/data/data_mnistsvhntext/"
+
+DATA_FOLDER = os.path.join(os.getenv('MLD_PATH'),"data/data_mnistsvhntext/")
 #DATA_FOLDER ="/home/bounoua/work/mld/data/data_mnistsvhntext/"
 data_multiplications = 5
 
