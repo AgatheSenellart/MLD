@@ -123,7 +123,7 @@ if __name__ == "__main__":
             check_stat=False,
             group_norm=8,
             betas=[0.1, 20],
-            train_batch_size=512,
+            train_batch_size=batch_size,
             N_step=250,
             train_latent=False,
             importance_sampling=False,

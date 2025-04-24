@@ -69,7 +69,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     seeds = [int(args.seed)]
     # latent_dim = 128
-    latent_dim = 160
+    latent_dim = 40
    # dim_image = 64
    # dim_traj = 16
 

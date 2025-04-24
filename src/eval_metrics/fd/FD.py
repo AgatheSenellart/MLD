@@ -8,6 +8,7 @@ from typing import *
 import torch
 from src.eval_metrics.fid.inception  import InceptionV3
 from src.eval_metrics.fd.Frechet_distance import FrechetDistance
+from torchvision.transforms import Resize
 INCEPTION_FILE ="data/pt_inception-2015-12-05-6726825d.pth"
 
 Device ="cuda:0"
@@ -40,6 +41,8 @@ def init_metric_fd(act_dim,limit, device=Device) :
     return m
 
 def preprocess_inception(x):
+    # resize = Resize((299, 299))
+    # x = resize(x)
     return torch.clamp(x,max=1.0,min = 0.0).type(torch.FloatTensor)
     
 
