@@ -30,9 +30,9 @@ parser.add_argument('--seed', type=str, default=1,
                     help=("Options possible are "))
 
 do_evaluation = True
-do_fd = True
+do_fd = False
 do_class = False
-eval_epoch = 1
+eval_epoch = 20
 log_epoch = 20
 
 
@@ -44,6 +44,9 @@ r_w_svhn = 1.0
 r_w_text = 1.0
 lr = 1e-4
 
+# PATHS = {
+#     "mnist": "/home/asenella/dev/MLD/trained_models/MNISTSVHN/aemnist/version_3/checkpoints/epoch=1-step=4380.ckpt",
+#     "svhn": "/home/asenella/dev/MLD/trained_models/MNISTSVHN/aesvhn/version_0/checkpoints/epoch=1-step=4380.ckpt"}
 PATHS = {
     "mnist": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MNISTSVHN/aemnist/version_0/checkpoints/epoch=149-step=328500.ckpt",
     "svhn": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MNISTSVHN/aesvhn/version_0/checkpoints/epoch=149-step=328500.ckpt"}
@@ -60,7 +63,6 @@ test_loader = DataLoader(test, batch_size=512,
                          shuffle=True,
                          num_workers=8, drop_last=True, 
                          pin_memory=True)
-
 
 CHECKPOINT_DIR = "trained_models/"
 
@@ -111,7 +113,7 @@ if __name__ == "__main__":
             n_fd=5000,
             log_epoch=log_epoch,
             lr=lr,
-            nb_batchs=2,
+            nb_batchs=10,
             init_dim=256,
             do_class=False,
             time_dim=256,
@@ -123,7 +125,7 @@ if __name__ == "__main__":
             check_stat=False,
             group_norm=8,
             betas=[0.1, 20],
-            train_batch_size=batch_size,
+            train_batch_size=512,
             N_step=250,
             train_latent=False,
             importance_sampling=False,
