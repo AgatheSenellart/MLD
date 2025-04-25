@@ -206,11 +206,11 @@ class MG(pl.LightningModule, GenerativeModel,ABC):
         #self.n_fd = 5000
         #self.limit_clip = 5000
         self.do_fd = True
-        self.nb_batchs = 6
-        self.n_fd = 3000
+        self.nb_batchs = None
+        self.n_fd = 60000
        # self.n_fd = 5000
         # self.nb_batchs = 1
-        print("Running Final evaluation with all the data and 5000 samples for FID")
+        print(f"Running Final evaluation with all the data and {self.n_fd} samples for FID")
         results = self.evaluation()
         log_results_eval_step(self.logger , results,self.global_step )
         

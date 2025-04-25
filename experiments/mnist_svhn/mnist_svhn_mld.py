@@ -1,6 +1,7 @@
 
 import sys
-sys.path.insert(0,'/lustre/fswork/projects/rech/vct/ute94bq/MLD')
+import os
+sys.path.insert(0,os.getenv('MLD_PATH'))
 
 from src.dataLoaders.MnistSvhnText.modalities import MNIST, SVHN, LABEL
 from src.models.LateFusionAE import LateFusionAE
@@ -61,7 +62,7 @@ train_loader = DataLoader(train, batch_size=batch_size,
 
 test_loader = DataLoader(test, batch_size=512,
                          shuffle=True,
-                         num_workers=8, drop_last=True, 
+                         num_workers=8, drop_last=False, 
                          pin_memory=True)
 
 CHECKPOINT_DIR = "trained_models/"
