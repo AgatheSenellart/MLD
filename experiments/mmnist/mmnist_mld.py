@@ -1,6 +1,8 @@
-
-
 import os
+import sys
+
+sys.path.insert(0,os.getenv('MLD_PATH'))
+
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
 from pytorch_lightning.loggers import TensorBoardLogger
@@ -48,11 +50,11 @@ CHECKPOINT_DIR = os.path.join(CHECKPOINT_DIR, 'MLD')
 
 
 PATHS = {
-    "m0": "trained_models/MMNIST/ae_deter_latentm0/version_1/checkpoints/epoch=0-step=468.ckpt",
-    "m1": "trained_models/MMNIST/ae_deter_latentm0/version_1/checkpoints/epoch=0-step=468.ckpt",
-    "m2": "trained_models/MMNIST/ae_deter_latentm0/version_1/checkpoints/epoch=0-step=468.ckpt",
-    "m3": "trained_models/MMNIST/ae_deter_latentm0/version_1/checkpoints/epoch=0-step=468.ckpt",
-    "m4": "trained_models/MMNIST/ae_deter_latentm0/version_1/checkpoints/epoch=0-step=468.ckpt",
+    "m0": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MMNIST/ae_deter_latentm0/version_0/checkpoints/epoch=299-step=140400.ckpt",
+    "m1": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MMNIST/ae_deter_latentm1/version_0/checkpoints/epoch=299-step=140400.ckpt",
+    "m2": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MMNIST/ae_deter_latentm2/version_0/checkpoints/epoch=299-step=140400.ckpt",
+    "m3": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MMNIST/ae_deter_latentm3/version_0/checkpoints/epoch=299-step=140400.ckpt",
+    "m4": "/lustre/fswork/projects/rech/vct/ute94bq/MLD/trained_models/MMNIST/ae_deter_latentm4/version_0/checkpoints/epoch=299-step=140400.ckpt",
 }
 
 train, test = get_mmnist_dataset()
@@ -75,7 +77,7 @@ if __name__ == "__main__":
 
     # seed_everything(seed, workers=True)
     modalities_list = [MMNIST(latent_dim=latent_dim, lhood_name="laplace",
-                              deterministic=True, resnet=False, name="m{}".format(i)) for i in [0, 1, 2, 3, 4]]
+                              deterministic=True, resnet=True, name="m{}".format(i)) for i in [0, 1, 2, 3, 4]]
 
     aes = []
     for mod in modalities_list:
